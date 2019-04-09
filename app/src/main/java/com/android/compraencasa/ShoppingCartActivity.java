@@ -46,7 +46,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
 
         final Cart cart = CartHelper.getCart();
         final TextView tvTotalPrice = (TextView) findViewById(R.id.tvTotalPrice);
-        tvTotalPrice.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(2, BigDecimal.ROUND_HALF_UP)));
+        tvTotalPrice.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
 
         lvCartItems.addHeaderView(layoutInflater.inflate(R.layout.cart_header, lvCartItems, false));
 
@@ -65,7 +65,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
                 cart.clear();
                 cartItemAdapter.updateCartItems(getCartItems(cart));
                 cartItemAdapter.notifyDataSetChanged();
-                tvTotalPrice.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(2, BigDecimal.ROUND_HALF_UP)));
+                tvTotalPrice.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
             }
         });
 
@@ -106,7 +106,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 List<CartItem> cartItems = getCartItems(cart);
                 Product product = cartItems.get(position-1).getProduct();
-                Log.d(TAG, "Viewing product: " + product.getName());
+                Log.d(TAG, "Viendo producto: " + product.getName());
                 bundle.putSerializable("product", product);
                 Intent intent = new Intent(ShoppingCartActivity.this, ProductActivity.class);
                 intent.putExtras(bundle);
@@ -117,7 +117,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
 
     private List<CartItem> getCartItems(Cart cart) {
         List<CartItem> cartItems = new ArrayList<CartItem>();
-        Log.d(TAG, "Current shopping cart: " + cart);
+        Log.d(TAG, "Carro de compras actual: " + cart);
 
         Map<Saleable, Integer> itemMap = cart.getItemWithQuantity();
 
@@ -128,7 +128,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
             cartItems.add(cartItem);
         }
 
-        Log.d(TAG, "Cart item list: " + cartItems);
+        Log.d(TAG, "Lista de artículos del carrito: " + cartItems);
         return cartItems;
     }
 }

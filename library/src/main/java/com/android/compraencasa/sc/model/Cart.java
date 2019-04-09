@@ -31,7 +31,7 @@ public class Cart implements Serializable {
     public void update(final Saleable sellable, int quantity) throws ProductNotFoundException, QuantityOutOfRangeException {
         if (!cartItemMap.containsKey(sellable)) throw new ProductNotFoundException();
         if (quantity < 0)
-            throw new QuantityOutOfRangeException(quantity + " is not a valid quantity. It must be non-negative.");
+            throw new QuantityOutOfRangeException(quantity + " no es una cantidad válida. Debe ser positiva.");
 
         int productQuantity = cartItemMap.get(sellable);
         BigDecimal productPrice = sellable.getPrice().multiply(BigDecimal.valueOf(productQuantity));
@@ -48,7 +48,7 @@ public class Cart implements Serializable {
         int productQuantity = cartItemMap.get(sellable);
 
         if (quantity < 0 || quantity > productQuantity)
-            throw new QuantityOutOfRangeException(quantity + " is not a valid quantity. It must be non-negative and less than the current quantity of the product in the shopping cart.");
+            throw new QuantityOutOfRangeException(quantity + " no es una cantidad válida. Debe ser positiva y menor a la cantidad actual del producto en el carrito de compras.");
 
         if (productQuantity == quantity) {
             cartItemMap.remove(sellable);
@@ -107,9 +107,9 @@ public class Cart implements Serializable {
     public String toString() {
         StringBuilder strBuilder = new StringBuilder();
         for (Entry<Saleable, Integer> entry : cartItemMap.entrySet()) {
-            strBuilder.append(String.format("Product: %s, Unit Price: %f, Quantity: %d%n", entry.getKey().getName(), entry.getKey().getPrice(), entry.getValue()));
+            strBuilder.append(String.format("Producto: %s, Precio Unitario: %f, Cantidad: %d%n", entry.getKey().getName(), entry.getKey().getPrice(), entry.getValue()));
         }
-        strBuilder.append(String.format("Total Quantity: %d, Total Price: %f", totalQuantity, totalPrice));
+        strBuilder.append(String.format("Cantidad Total: %d, Total Price: %f", totalQuantity, totalPrice));
 
         return strBuilder.toString();
     }

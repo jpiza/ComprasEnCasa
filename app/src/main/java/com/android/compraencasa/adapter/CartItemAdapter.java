@@ -73,9 +73,9 @@ public class CartItemAdapter extends BaseAdapter {
         final Cart cart = CartHelper.getCart();
         final CartItem cartItem = getItem(position);
         tvName.setText(cartItem.getProduct().getName());
-        tvUnitPrice.setText(Constant.CURRENCY+String.valueOf(cartItem.getProduct().getPrice().setScale(2, BigDecimal.ROUND_HALF_UP)));
+        tvUnitPrice.setText(Constant.CURRENCY+String.valueOf(cartItem.getProduct().getPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
         tvQuantity.setText(String.valueOf(cartItem.getQuantity()));
-        tvPrice.setText(Constant.CURRENCY+String.valueOf(cart.getCost(cartItem.getProduct()).setScale(2, BigDecimal.ROUND_HALF_UP)));
+        tvPrice.setText(Constant.CURRENCY+String.valueOf(cart.getCost(cartItem.getProduct()).setScale(0, BigDecimal.ROUND_HALF_UP)));
         return convertView;
     }
 

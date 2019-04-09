@@ -37,7 +37,7 @@ public class ProductActivity extends AppCompatActivity {
         Bundle data = getIntent().getExtras();
         product = (Product) data.getSerializable("product");
 
-        Log.d(TAG, "Product hashCode: " + product.hashCode());
+        Log.d(TAG, "Producto hashCode: " + product.hashCode());
 
         //Set Shopping Cart link
         setShoppingCartLink();
@@ -80,7 +80,7 @@ public class ProductActivity extends AppCompatActivity {
     private void setProductProperties() {
         tvProductName.setText(product.getName());
         tvProductDesc.setText(product.getDescription());
-        ivProductImage.setImageResource(this.getResources().getIdentifier(product.getImageName(), "drawable", this.getPackageName()));
+        ivProductImage.setImageResource(this.getResources().getIdentifier(product.getImageName(), "imagen", this.getPackageName()));
     }
 
     private void initializeQuantity() {
@@ -94,7 +94,7 @@ public class ProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Cart cart = CartHelper.getCart();
-                Log.d(TAG, "Adding product: " + product.getName());
+                Log.d(TAG, "Agregando Producto: " + product.getName());
                 cart.add(product, Integer.valueOf(spQuantity.getSelectedItem().toString()));
                 Intent intent = new Intent(ProductActivity.this, ShoppingCartActivity.class);
                 startActivity(intent);
