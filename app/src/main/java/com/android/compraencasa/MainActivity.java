@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, ProductActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("product", product);
-                Log.d(TAG, "View product: " + product.getName());
+                Log.d(TAG, "Viendo Producto: " + product.getName());
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
