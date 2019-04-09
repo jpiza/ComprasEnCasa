@@ -1,4 +1,4 @@
-package com.android.tonyvu.sc.model;
+package com.android.compraencasa.sc.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.android.tonyvu.sc.exception.ProductNotFoundException;
-import com.android.tonyvu.sc.exception.QuantityOutOfRangeException;
+import com.android.compraencasa.sc.exception.ProductNotFoundException;
+import com.android.compraencasa.sc.exception.QuantityOutOfRangeException;
 
 /**
  * A representation of shopping cart.

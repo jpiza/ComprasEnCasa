@@ -1,4 +1,4 @@
-package com.android.tonyvu.sc.exception;
+package com.android.compraencasa.sc.exception;
 
 /**
  * Throw this exception to indicate invalid quantity to be used on a shopping cart product.

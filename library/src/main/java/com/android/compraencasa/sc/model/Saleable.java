@@ -1,4 +1,4 @@
-package com.android.tonyvu.sc.model;
+package com.android.compraencasa.sc.model;
 
 import java.math.BigDecimal;
 

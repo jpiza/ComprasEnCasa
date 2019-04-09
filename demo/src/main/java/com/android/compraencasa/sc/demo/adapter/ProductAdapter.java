@@ -1,4 +1,4 @@
-package com.android.tonyvu.sc.demo.adapter;
+package com.android.compraencasa.sc.demo.adapter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.tonyvu.sc.demo.R;
-import com.android.tonyvu.sc.demo.constant.Constant;
-import com.android.tonyvu.sc.demo.model.Product;
+import com.android.compraencasa.sc.demo.R;
+import com.android.compraencasa.sc.demo.constant.Constant;
+import com.android.compraencasa.sc.demo.model.Product;
 
 public class ProductAdapter extends BaseAdapter {
     private static final String TAG = "ProductAdapter";

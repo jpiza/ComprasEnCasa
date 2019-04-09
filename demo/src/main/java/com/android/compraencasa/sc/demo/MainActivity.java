@@ -1,4 +1,4 @@
-package com.android.tonyvu.sc.demo;
+package com.android.compraencasa.sc.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.tonyvu.sc.demo.adapter.ProductAdapter;
-import com.android.tonyvu.sc.demo.constant.Constant;
-import com.android.tonyvu.sc.demo.model.Product;
+import com.android.compraencasa.sc.demo.adapter.ProductAdapter;
+import com.android.compraencasa.sc.demo.constant.Constant;
+import com.android.compraencasa.sc.demo.model.Product;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";

@@ -1,4 +1,4 @@
-package com.android.tonyvu.sc.demo;
+package com.android.compraencasa.sc.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,10 +13,10 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ImageView;
-import com.android.tonyvu.sc.demo.constant.Constant;
-import com.android.tonyvu.sc.demo.model.Product;
-import com.android.tonyvu.sc.model.Cart;
-import com.android.tonyvu.sc.util.CartHelper;
+import com.android.compraencasa.sc.demo.constant.Constant;
+import com.android.compraencasa.sc.demo.model.Product;
+import com.android.compraencasa.sc.model.Cart;
+import com.android.compraencasa.sc.util.CartHelper;
 
 public class ProductActivity extends AppCompatActivity {
     private static final String TAG = "ProductActivity";

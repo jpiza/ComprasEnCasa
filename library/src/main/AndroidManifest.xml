@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="com.android.tonyvu.sc"
+    package="com.android.compraencasa.sc"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application

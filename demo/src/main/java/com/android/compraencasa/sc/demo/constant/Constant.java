@@ -1,10 +1,10 @@
-package com.android.tonyvu.sc.demo.constant;
+package com.android.compraencasa.sc.demo.constant;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.android.tonyvu.sc.demo.model.Product;
+import com.android.compraencasa.sc.demo.model.Product;
 
 public final class Constant {
     public static final List<Integer> QUANTITY_LIST = new ArrayList<Integer>();

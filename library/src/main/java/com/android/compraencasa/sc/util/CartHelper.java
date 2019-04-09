@@ -1,6 +1,6 @@
-package com.android.tonyvu.sc.util;
+package com.android.compraencasa.sc.util;
 
-import com.android.tonyvu.sc.model.Cart;
+import com.android.compraencasa.sc.model.Cart;
 
 /**
  * A helper class to retrieve the static shopping cart. Call {@code getCart()} to retrieve the shopping cart before you perform any operation on the shopping cart.

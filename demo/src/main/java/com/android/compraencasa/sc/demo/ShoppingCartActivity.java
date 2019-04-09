@@ -1,4 +1,4 @@
-package com.android.tonyvu.sc.demo;
+package com.android.compraencasa.sc.demo;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,13 +14,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.tonyvu.sc.demo.adapter.CartItemAdapter;
-import com.android.tonyvu.sc.demo.constant.Constant;
-import com.android.tonyvu.sc.demo.model.CartItem;
-import com.android.tonyvu.sc.demo.model.Product;
-import com.android.tonyvu.sc.model.Cart;
-import com.android.tonyvu.sc.model.Saleable;
-import com.android.tonyvu.sc.util.CartHelper;
+import com.android.compraencasa.sc.demo.adapter.CartItemAdapter;
+import com.android.compraencasa.sc.demo.constant.Constant;
+import com.android.compraencasa.sc.demo.model.CartItem;
+import com.android.compraencasa.sc.demo.model.Product;
+import com.android.compraencasa.sc.model.Cart;
+import com.android.compraencasa.sc.model.Saleable;
+import com.android.compraencasa.sc.util.CartHelper;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

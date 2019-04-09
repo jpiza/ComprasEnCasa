@@ -1,4 +1,4 @@
-package com.android.tonyvu.sc.demo.model;
+package com.android.compraencasa.sc.demo.model;
 
 public class CartItem {
     private Product product;

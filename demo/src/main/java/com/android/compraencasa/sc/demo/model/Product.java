@@ -1,9 +1,9 @@
-package com.android.tonyvu.sc.demo.model;
+package com.android.compraencasa.sc.demo.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import com.android.tonyvu.sc.model.Saleable;
+import com.android.compraencasa.sc.model.Saleable;
 
 public class Product implements Saleable, Serializable {
     private static final long serialVersionUID = -4073256626483275668L;

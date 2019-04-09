@@ -1,4 +1,4 @@
-package com.android.tonyvu.sc.exception;
+package com.android.compraencasa.sc.exception;
 
 /**
  * Throw this exception to indicate invalid operation on product which does not belong to a shopping cart
