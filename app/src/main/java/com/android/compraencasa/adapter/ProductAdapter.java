@@ -73,18 +73,6 @@ public class ProductAdapter extends BaseAdapter {
         Log.d(TAG, "Context package name: " + context.getPackageName());
         ivImage.setImageResource(context.getResources().getIdentifier(
                 product.getImageName(), "drawable", context.getPackageName()));
-//        bView.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, ProductActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("product", product);
-//                Log.d(TAG, "This product hashCode: " + product.hashCode());
-//                intent.putExtras(bundle);
-//                context.startActivity(intent);
-//            }
-//        });
-
         return convertView;
     }
 
