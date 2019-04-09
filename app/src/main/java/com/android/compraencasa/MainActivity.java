@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.android.compraencasa.adapter.ProductAdapter;
 import com.android.compraencasa.constant.Constant;
 import com.android.compraencasa.model.Product;
-import com.android.compraencasa.sc.demo.R;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";

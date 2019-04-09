@@ -18,7 +18,6 @@ import com.android.compraencasa.adapter.CartItemAdapter;
 import com.android.compraencasa.constant.Constant;
 import com.android.compraencasa.model.CartItem;
 import com.android.compraencasa.model.Product;
-import com.android.compraencasa.sc.demo.R;
 import com.android.compraencasa.sc.model.Cart;
 import com.android.compraencasa.sc.model.Saleable;
 import com.android.compraencasa.sc.util.CartHelper;
