@@ -1,4 +1,4 @@
-package com.android.compraencasa.sc.demo.adapter;
+package com.android.compraencasa.adapter;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -12,8 +12,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.android.compraencasa.sc.demo.R;
-import com.android.compraencasa.sc.demo.constant.Constant;
-import com.android.compraencasa.sc.demo.model.CartItem;
+import com.android.compraencasa.constant.Constant;
+import com.android.compraencasa.model.CartItem;
 import com.android.compraencasa.sc.model.Cart;
 import com.android.compraencasa.sc.util.CartHelper;
 

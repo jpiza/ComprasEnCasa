@@ -1,4 +1,4 @@
-package com.android.compraencasa.sc.demo;
+package com.android.compraencasa;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.compraencasa.sc.demo.adapter.ProductAdapter;
-import com.android.compraencasa.sc.demo.constant.Constant;
-import com.android.compraencasa.sc.demo.model.Product;
+import com.android.compraencasa.adapter.ProductAdapter;
+import com.android.compraencasa.constant.Constant;
+import com.android.compraencasa.model.Product;
+import com.android.compraencasa.sc.demo.R;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";

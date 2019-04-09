@@ -1,4 +1,4 @@
-package com.android.compraencasa.sc.demo.model;
+package com.android.compraencasa.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

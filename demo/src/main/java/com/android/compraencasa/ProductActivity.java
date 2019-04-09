@@ -1,4 +1,4 @@
-package com.android.compraencasa.sc.demo;
+package com.android.compraencasa;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +13,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ImageView;
-import com.android.compraencasa.sc.demo.constant.Constant;
-import com.android.compraencasa.sc.demo.model.Product;
+import com.android.compraencasa.constant.Constant;
+import com.android.compraencasa.model.Product;
+import com.android.compraencasa.sc.demo.R;
 import com.android.compraencasa.sc.model.Cart;
 import com.android.compraencasa.sc.util.CartHelper;
 

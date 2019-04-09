@@ -1,4 +1,4 @@
-package com.android.compraencasa.sc.demo;
+package com.android.compraencasa;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,10 +14,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.compraencasa.sc.demo.adapter.CartItemAdapter;
-import com.android.compraencasa.sc.demo.constant.Constant;
-import com.android.compraencasa.sc.demo.model.CartItem;
-import com.android.compraencasa.sc.demo.model.Product;
+import com.android.compraencasa.adapter.CartItemAdapter;
+import com.android.compraencasa.constant.Constant;
+import com.android.compraencasa.model.CartItem;
+import com.android.compraencasa.model.Product;
+import com.android.compraencasa.sc.demo.R;
 import com.android.compraencasa.sc.model.Cart;
 import com.android.compraencasa.sc.model.Saleable;
 import com.android.compraencasa.sc.util.CartHelper;
