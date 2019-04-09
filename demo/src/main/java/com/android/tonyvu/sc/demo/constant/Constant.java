@@ -13,7 +13,7 @@ public final class Constant {
         for (int i = 1; i < 11; i++) QUANTITY_LIST.add(i);
     }
 
-    public static final Product PRODUCT1 = new Product(1, "Mango", BigDecimal.valueOf(5000,-3), "Mango.", "mango");
+    public static final Product PRODUCT1 = new Product(1, "Mango", BigDecimal.valueOf(199.996), "Mango.", "mango");
     public static final Product PRODUCT2 = new Product(2, "Acelga", BigDecimal.valueOf(449.9947), "Acelga.", "acelga");
     public static final Product PRODUCT3 = new Product(3, "Manzana", BigDecimal.valueOf(319.998140), "Manzana.", "manzanas");
     public static final Product PRODUCT4 = new Product(4, "Pepino", BigDecimal.valueOf(319.998140), "Pepino.", "pepino");
