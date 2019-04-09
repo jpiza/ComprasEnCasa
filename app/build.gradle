@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "com.android.compraencasa"
-        minSdkVersion 14
-        targetSdkVersion 23
+        minSdkVersion 15
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -20,9 +19,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile project(path: ':library')
-    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation project(path: ':library')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
 
 repositories {
