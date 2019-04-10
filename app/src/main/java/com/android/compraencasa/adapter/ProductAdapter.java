@@ -72,7 +72,7 @@ public class ProductAdapter extends BaseAdapter {
         tvPrice.setText(Constant.CURRENCY+String.valueOf(product.getPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
         Log.d(TAG, "Context package name: " + context.getPackageName());
         ivImage.setImageResource(context.getResources().getIdentifier(
-                product.getImageName(), "imagen", context.getPackageName()));
+                product.getImageName(), "drawable", context.getPackageName()));
         return convertView;
     }
 
