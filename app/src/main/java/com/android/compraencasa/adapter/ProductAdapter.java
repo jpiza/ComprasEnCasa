@@ -50,41 +50,41 @@ public class ProductAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView tvName;
-        TextView tvPrice;
-        ImageView ivImage;
+        TextView txtNombre;
+        TextView txtPrecio;
+        ImageView imgImagen;
         if (convertView == null) {
             convertView = LayoutInflater.from(context)
                     .inflate(R.layout.adapter_product, parent, false);
-            tvName = (TextView) convertView.findViewById(R.id.tvProductName);
-            tvPrice = (TextView) convertView.findViewById(R.id.tvProductPrice);
-            ivImage = (ImageView) convertView.findViewById(R.id.ivProductImage);
-            convertView.setTag(new ViewHolder(tvName, tvPrice, ivImage));
+            txtNombre = (TextView) convertView.findViewById(R.id.txtNombreProducto);
+            txtPrecio = (TextView) convertView.findViewById(R.id.txtPrecioProducto);
+            imgImagen = (ImageView) convertView.findViewById(R.id.imgImagenProducto);
+            convertView.setTag(new ViewHolder(txtNombre, txtPrecio, imgImagen));
         } else {
             ViewHolder viewHolder = (ViewHolder) convertView.getTag();
-            tvName = viewHolder.tvProductName;
-            tvPrice = viewHolder.tvProductPrice;
-            ivImage = viewHolder.ivProductImage;
+            txtNombre = viewHolder.txtNombreProducto;
+            txtPrecio = viewHolder.txtPrecioProducto;
+            imgImagen = viewHolder.imgImagenProducto;
         }
 
         final Product product = getItem(position);
-        tvName.setText(product.getName());
-        tvPrice.setText(Constant.CURRENCY+String.valueOf(product.getPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
+        txtNombre.setText(product.getName());
+        txtPrecio.setText(Constant.CURRENCY+String.valueOf(product.getPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
         Log.d(TAG, "Context package name: " + context.getPackageName());
-        ivImage.setImageResource(context.getResources().getIdentifier(
+        imgImagen.setImageResource(context.getResources().getIdentifier(
                 product.getImageName(), "imagen", context.getPackageName()));
         return convertView;
     }
 
     private static class ViewHolder {
-        public final TextView tvProductName;
-        public final TextView tvProductPrice;
-        public final ImageView ivProductImage;
+        public final TextView txtNombreProducto;
+        public final TextView txtPrecioProducto;
+        public final ImageView imgImagenProducto;
 
-        public ViewHolder(TextView tvProductName, TextView tvProductPrice, ImageView ivProductImage) {
-            this.tvProductName = tvProductName;
-            this.tvProductPrice = tvProductPrice;
-            this.ivProductImage = ivProductImage;
+        public ViewHolder(TextView txtNombreProducto, TextView txtPrecioProducto, ImageView imgImagenProducto) {
+            this.txtNombreProducto = txtNombreProducto;
+            this.txtPrecioProducto = txtPrecioProducto;
+            this.imgImagenProducto = imgImagenProducto;
         }
     }
 }

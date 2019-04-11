@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView tvViewShoppingCart = (TextView)findViewById(R.id.tvViewShoppingCart);
-        SpannableString content = new SpannableString(getText(R.string.shopping_cart));
+        TextView tvViewShoppingCart = (TextView)findViewById(R.id.txtVerCarroCompra);
+        SpannableString content = new SpannableString(getText(R.string.carro_compra));
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         tvViewShoppingCart.setText(content);
         tvViewShoppingCart.setOnClickListener(new View.OnClickListener() {
@@ -36,15 +36,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ListView lvProducts = (ListView) findViewById(R.id.lvProducts);
-        lvProducts.addHeaderView(getLayoutInflater().inflate(R.layout.product_list_header, lvProducts, false));
+        ListView lstProductos = (ListView) findViewById(R.id.lstProductos);
+        lstProductos.addHeaderView(getLayoutInflater().inflate(R.layout.product_list_header, lstProductos, false));
 
         ProductAdapter productAdapter = new ProductAdapter(this);
         productAdapter.updateProducts(Constant.PRODUCT_LIST);
 
-        lvProducts.setAdapter(productAdapter);
+        lstProductos.setAdapter(productAdapter);
 
-        lvProducts.setOnItemClickListener(new OnItemClickListener() {
+        lstProductos.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view,

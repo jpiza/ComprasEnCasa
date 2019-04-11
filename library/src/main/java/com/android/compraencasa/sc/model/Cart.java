@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import com.android.compraencasa.sc.exception.ProductNotFoundException;
-import com.android.compraencasa.sc.exception.QuantityOutOfRangeException;
+import com.android.compraencasa.sc.exception.QuantyOutOfRangeException;
 
 public class Cart implements Serializable {
     private static final long serialVersionUID = 42L;
@@ -28,10 +28,10 @@ public class Cart implements Serializable {
         totalQuantity += quantity;
     }
 
-    public void update(final Saleable sellable, int quantity) throws ProductNotFoundException, QuantityOutOfRangeException {
+    public void update(final Saleable sellable, int quantity) throws ProductNotFoundException, QuantyOutOfRangeException {
         if (!cartItemMap.containsKey(sellable)) throw new ProductNotFoundException();
         if (quantity < 0)
-            throw new QuantityOutOfRangeException(quantity + " no es una cantidad válida. Debe ser positiva.");
+            throw new QuantyOutOfRangeException(quantity + " no es una cantidad válida. Debe ser positiva.");
 
         int productQuantity = cartItemMap.get(sellable);
         BigDecimal productPrice = sellable.getPrice().multiply(BigDecimal.valueOf(productQuantity));
@@ -42,13 +42,13 @@ public class Cart implements Serializable {
         totalPrice = totalPrice.subtract(productPrice).add(sellable.getPrice().multiply(BigDecimal.valueOf(quantity)));
     }
 
-    public void remove(final Saleable sellable, int quantity) throws ProductNotFoundException, QuantityOutOfRangeException {
+    public void remove(final Saleable sellable, int quantity) throws ProductNotFoundException, QuantyOutOfRangeException {
         if (!cartItemMap.containsKey(sellable)) throw new ProductNotFoundException();
 
         int productQuantity = cartItemMap.get(sellable);
 
         if (quantity < 0 || quantity > productQuantity)
-            throw new QuantityOutOfRangeException(quantity + " no es una cantidad válida. Debe ser positiva y menor a la cantidad actual del producto en el carrito de compras.");
+            throw new QuantyOutOfRangeException(quantity + " no es una cantidad válida. Debe ser positiva y menor a la cantidad actual del producto en el carrito de compras.");
 
         if (productQuantity == quantity) {
             cartItemMap.remove(sellable);

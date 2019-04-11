@@ -3,22 +3,22 @@
 
     <string name="app_name">Compra en Casa</string>
 
-    <string name="product_list">Lista de Productos</string>
-    <string name="shopping_cart">Carrito de Compras</string>
-    <string name="name">Nombre</string>
-    <string name="unit_price">Precio Unitario</string>
-    <string name="quantity">Cantidad</string>
-    <string name="view">Ver</string>
-    <string name="action">Acción</string>
-    <string name="order">Agregar</string>
-    <string name="price">Precio</string>
-    <string name="total_price">Precio Total</string>
-    <string name="remove">Remover</string>
-    <string name="clear_cart">Limpiar Carro</string>
-    <string name="shop">Comprar</string>
-    <string name="delete_item">Eliminar Item</string>
-    <string name="delete_item_message">¿Estás seguro de que quieres eliminar este elemento?</string>
-    <string name="yes">Si</string>
+    <string name="lista_producto">Lista de Productos</string>
+    <string name="carro_compra">Carrito de Compras</string>
+    <string name="nombre">Nombre</string>
+    <string name="precio_unitario">Precio Unitario</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="ver">Ver</string>
+    <string name="accion">Acción</string>
+    <string name="agregar">Agregar</string>
+    <string name="precio">Precio</string>
+    <string name="precio_total">Precio Total</string>
+    <string name="remover">Remover</string>
+    <string name="limpiar_carro">Limpiar Carro</string>
+    <string name="comprar">Comprar</string>
+    <string name="eliminar_item">Eliminar Item</string>
+    <string name="eliminar_item_mensaje">¿Estás seguro de que quieres eliminar este elemento?</string>
+    <string name="si">Si</string>
     <string name="no">No</string>
 
 </resources>

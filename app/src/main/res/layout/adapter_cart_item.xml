@@ -9,33 +9,33 @@
     android:weightSum="1">
 
     <TextView
-        android:id="@+id/tvCartItemName"
+        android:id="@+id/txtNombreItem"
         android:layout_width="0dip"
         android:layout_height="match_parent"
         android:layout_weight="0.4"
         android:gravity="center"
-        android:text=""/>
+        android:text="" />
 
     <TextView
-        android:id="@+id/tvCartItemUnitPrice"
+        android:id="@+id/txtPrecioUnitarioItem"
         android:layout_width="0dip"
         android:layout_height="match_parent"
         android:layout_weight="0.2"
         android:gravity="center"
-        android:text=""/>
+        android:text="" />
 
     <TextView
-        android:id="@+id/tvCartItemQuantity"
+        android:id="@+id/txtCantidadItem"
         android:layout_width="0dip"
         android:layout_height="match_parent"
         android:layout_weight="0.15"
-        android:gravity="center"/>
+        android:gravity="center" />
 
     <TextView
-        android:id="@+id/tvCartItemPrice"
+        android:id="@+id/txtPrecioItem"
         android:layout_width="0dip"
         android:layout_height="match_parent"
         android:layout_weight="0.25"
         android:gravity="center"
-        android:text=""/>
+        android:text="" />
 </LinearLayout>

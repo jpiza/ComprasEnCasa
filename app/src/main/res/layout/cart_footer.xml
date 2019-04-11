@@ -14,13 +14,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.75"
         android:gravity="end|center_vertical"
-        android:text="@string/total_price"
+        android:text="@string/precio_total"
         android:textColor="@android:color/white"
         android:textSize="@dimen/product_list_header_text_size"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvTotalPrice"
+        android:id="@+id/txtPrecioTotal"
         android:layout_width="0dip"
         android:layout_height="wrap_content"
         android:layout_weight="0.25"
@@ -28,5 +28,5 @@
         android:text=""
         android:textColor="@android:color/white"
         android:textSize="@dimen/product_list_header_text_size"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 </LinearLayout>

@@ -9,22 +9,23 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView android:id="@+id/tvViewShoppingCart"
+    <TextView
+        android:id="@+id/txtVerCarroCompra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:textColor="@color/blue"
         android:gravity="center"
-        android:paddingBottom="@dimen/common_padding"
         android:paddingTop="@dimen/common_padding"
-        android:text="@string/shopping_cart"
-        android:textSize="@dimen/small_header_text_size"/>
+        android:paddingBottom="@dimen/common_padding"
+        android:text="@string/carro_compra"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/small_header_text_size" />
 
     <TextView
-        android:id="@+id/tvProductName"
+        android:id="@+id/txtNombreProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvViewShoppingCart"
+        android:layout_below="@id/txtVerCarroCompra"
         android:background="@color/green"
         android:gravity="center"
         android:padding="@dimen/common_padding"
@@ -33,24 +34,25 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/tvProductDesc"
+        android:id="@+id/txtDescProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvProductName"
+        android:layout_below="@id/txtNombreProducto"
         android:paddingBottom="@dimen/common_padding"
         android:paddingTop="@dimen/common_padding"/>
 
-    <ImageView android:id="@+id/ivProductImage"
+    <ImageView
+        android:id="@+id/imgImagenProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/LayoutAccion"
+        android:layout_below="@id/txtDescProducto"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/llAction"
-        android:layout_below="@id/tvProductDesc"
         android:paddingTop="5dp"
-        android:paddingBottom="5dp"/>
+        android:paddingBottom="5dp" />
 
     <LinearLayout
-        android:id="@id/llAction"
+        android:id="@+id/LayoutAccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -62,23 +64,23 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center_vertical|end"
-            android:text="@string/quantity"/>
+            android:text="@string/cantidad" />
 
         <Spinner
-            android:id="@+id/spQuantity"
+            android:id="@+id/spCantidad"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"/>
+            android:layout_weight="0.25" />
 
         <Button
-            android:id="@+id/bOrder"
+            android:id="@+id/btnAgregar"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:background="@color/orange"
-            android:text="@string/order"
+            android:text="@string/agregar"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 </RelativeLayout>

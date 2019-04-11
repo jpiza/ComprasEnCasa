@@ -21,12 +21,12 @@ import com.android.compraencasa.sc.util.CartHelper;
 public class ProductActivity extends AppCompatActivity {
     private static final String TAG = "ProductActivity";
 
-    TextView tvProductName;
-    TextView tvProductDesc;
-    ImageView ivProductImage;
-    Spinner spQuantity;
-    Button bOrder;
-    Product product;
+    TextView txtNombreProducto;
+    TextView txtDescProducto;
+    ImageView imgImagenProducto;
+    Spinner spCantidad;
+    Button btnAgregar;
+    Product producto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +35,9 @@ public class ProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product);
 
         Bundle data = getIntent().getExtras();
-        product = (Product) data.getSerializable("product");
+        producto = (Product) data.getSerializable("product");
 
-        Log.d(TAG, "Producto hashCode: " + product.hashCode());
+        Log.d(TAG, "Producto hashCode: " + producto.hashCode());
 
         //Set Shopping Cart link
         setShoppingCartLink();
@@ -56,8 +56,8 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void setShoppingCartLink() {
-        TextView tvViewShoppingCart = (TextView)findViewById(R.id.tvViewShoppingCart);
-        SpannableString content = new SpannableString(getText(R.string.shopping_cart));
+        TextView tvViewShoppingCart = (TextView)findViewById(R.id.txtVerCarroCompra);
+        SpannableString content = new SpannableString(getText(R.string.carro_compra));
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         tvViewShoppingCart.setText(content);
         tvViewShoppingCart.setOnClickListener(new OnClickListener() {
@@ -70,32 +70,32 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void retrieveViews() {
-        tvProductName = (TextView) findViewById(R.id.tvProductName);
-        tvProductDesc = (TextView) findViewById(R.id.tvProductDesc);
-        ivProductImage = (ImageView) findViewById(R.id.ivProductImage);
-        spQuantity = (Spinner) findViewById(R.id.spQuantity);
-        bOrder = (Button) findViewById(R.id.bOrder);
+        txtNombreProducto = (TextView) findViewById(R.id.txtNombreProducto);
+        txtDescProducto = (TextView) findViewById(R.id.txtDescProducto);
+        imgImagenProducto = (ImageView) findViewById(R.id.imgImagenProducto);
+        spCantidad = (Spinner) findViewById(R.id.spCantidad);
+        btnAgregar = (Button) findViewById(R.id.btnAgregar);
     }
 
     private void setProductProperties() {
-        tvProductName.setText(product.getName());
-        tvProductDesc.setText(product.getDescription());
-        ivProductImage.setImageResource(this.getResources().getIdentifier(product.getImageName(), "imagen", this.getPackageName()));
+        txtNombreProducto.setText(producto.getName());
+        txtDescProducto.setText(producto.getDescription());
+        imgImagenProducto.setImageResource(this.getResources().getIdentifier(producto.getImageName(), "imagen", this.getPackageName()));
     }
 
     private void initializeQuantity() {
         ArrayAdapter<Integer> dataAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, Constant.QUANTITY_LIST);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spQuantity.setAdapter(dataAdapter);
+        spCantidad.setAdapter(dataAdapter);
     }
 
     private void onOrderProduct() {
-        bOrder.setOnClickListener(new OnClickListener() {
+        btnAgregar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Cart cart = CartHelper.getCart();
-                Log.d(TAG, "Agregando Producto: " + product.getName());
-                cart.add(product, Integer.valueOf(spQuantity.getSelectedItem().toString()));
+                Log.d(TAG, "Agregando Producto: " + producto.getName());
+                cart.add(producto, Integer.valueOf(spCantidad.getSelectedItem().toString()));
                 Intent intent = new Intent(ProductActivity.this, ShoppingCartActivity.class);
                 startActivity(intent);
             }

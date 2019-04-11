@@ -31,45 +31,45 @@ import java.util.Map.Entry;
 public class ShoppingCartActivity extends AppCompatActivity {
     private static final String TAG = "ShoppingCartActivity";
 
-    ListView lvCartItems;
-    Button bClear;
-    Button bShop;
-    TextView tvTotalPrice;
+    ListView lstItemsCarro;
+    Button btnLimpiar;
+    Button btnComprar;
+    TextView txtPrecioTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        lvCartItems = (ListView) findViewById(R.id.lvCartItems);
+        lstItemsCarro = (ListView) findViewById(R.id.lstItemsCarro);
         LayoutInflater layoutInflater = getLayoutInflater();
 
         final Cart cart = CartHelper.getCart();
-        final TextView tvTotalPrice = (TextView) findViewById(R.id.tvTotalPrice);
-        tvTotalPrice.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
+        final TextView txtPrecioTotal = (TextView) findViewById(R.id.txtPrecioTotal);
+        txtPrecioTotal.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
 
-        lvCartItems.addHeaderView(layoutInflater.inflate(R.layout.cart_header, lvCartItems, false));
+        lstItemsCarro.addHeaderView(layoutInflater.inflate(R.layout.cart_header, lstItemsCarro, false));
 
         final CartItemAdapter cartItemAdapter = new CartItemAdapter(this);
         cartItemAdapter.updateCartItems(getCartItems(cart));
 
-        lvCartItems.setAdapter(cartItemAdapter);
+        lstItemsCarro.setAdapter(cartItemAdapter);
 
-        bClear = (Button) findViewById(R.id.bClear);
-        bShop = (Button) findViewById(R.id.bShop);
+        btnLimpiar = (Button) findViewById(R.id.btnLimpiar);
+        btnComprar = (Button) findViewById(R.id.btnComprar);
 
-        bClear.setOnClickListener(new OnClickListener() {
+        btnLimpiar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Clearing the shopping cart");
                 cart.clear();
                 cartItemAdapter.updateCartItems(getCartItems(cart));
                 cartItemAdapter.notifyDataSetChanged();
-                tvTotalPrice.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
+                txtPrecioTotal.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
             }
         });
 
-        bShop.setOnClickListener(new OnClickListener() {
+        btnComprar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShoppingCartActivity.this, MainActivity.class);
@@ -77,13 +77,13 @@ public class ShoppingCartActivity extends AppCompatActivity {
             }
         });
 
-        lvCartItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        lstItemsCarro.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
                 new AlertDialog.Builder(ShoppingCartActivity.this)
-                        .setTitle(getResources().getString(R.string.delete_item))
-                        .setMessage(getResources().getString(R.string.delete_item_message))
-                        .setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
+                        .setTitle(getResources().getString(R.string.eliminar_item))
+                        .setMessage(getResources().getString(R.string.eliminar_item_mensaje))
+                        .setPositiveButton(getResources().getString(R.string.si), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 List<CartItem> cartItems = getCartItems(cart);
@@ -91,7 +91,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
                                 cartItems.remove(position-1);
                                 cartItemAdapter.updateCartItems(cartItems);
                                 cartItemAdapter.notifyDataSetChanged();
-                                tvTotalPrice.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(2, BigDecimal.ROUND_HALF_UP)));
+                                txtPrecioTotal.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(2, BigDecimal.ROUND_HALF_UP)));
                             }
                         })
                         .setNegativeButton(getResources().getString(R.string.no), null)
@@ -100,7 +100,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
             }
         });
 
-        lvCartItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lstItemsCarro.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bundle = new Bundle();

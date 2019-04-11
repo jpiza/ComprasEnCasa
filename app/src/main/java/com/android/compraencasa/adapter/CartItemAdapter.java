@@ -50,46 +50,46 @@ public class CartItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        TextView tvName;
-        TextView tvUnitPrice;
-        TextView tvQuantity;
-        TextView tvPrice;
+        TextView txtNombre;
+        TextView txtPrecioUnitario;
+        TextView txtCantidad;
+        TextView txtPrecio;
         if (convertView == null) {
             convertView = LayoutInflater.from(context)
                     .inflate(R.layout.adapter_cart_item, parent, false);
-            tvName = (TextView) convertView.findViewById(R.id.tvCartItemName);
-            tvUnitPrice = (TextView) convertView.findViewById(R.id.tvCartItemUnitPrice);
-            tvQuantity = (TextView) convertView.findViewById(R.id.tvCartItemQuantity);
-            tvPrice = (TextView) convertView.findViewById(R.id.tvCartItemPrice);
-            convertView.setTag(new ViewHolder(tvName, tvUnitPrice, tvQuantity, tvPrice));
+            txtNombre = (TextView) convertView.findViewById(R.id.txtNombreItem);
+            txtPrecioUnitario = (TextView) convertView.findViewById(R.id.txtPrecioUnitarioItem);
+            txtCantidad = (TextView) convertView.findViewById(R.id.txtCantidadItem);
+            txtPrecio = (TextView) convertView.findViewById(R.id.txtPrecioItem);
+            convertView.setTag(new ViewHolder(txtNombre, txtPrecioUnitario, txtCantidad, txtPrecio));
         } else {
             ViewHolder viewHolder = (ViewHolder) convertView.getTag();
-            tvName = viewHolder.tvCartItemName;
-            tvUnitPrice = viewHolder.tvCartItemUnitPrice;
-            tvQuantity = viewHolder.tvCartItemQuantity;
-            tvPrice = viewHolder.tvCartItemPrice;
+            txtNombre = viewHolder.txtNombreItem;
+            txtPrecioUnitario = viewHolder.txtPrecioUnitarioItem;
+            txtCantidad = viewHolder.txtCantidadItem;
+            txtPrecio = viewHolder.txtPrecioItem;
         }
 
         final Cart cart = CartHelper.getCart();
         final CartItem cartItem = getItem(position);
-        tvName.setText(cartItem.getProduct().getName());
-        tvUnitPrice.setText(Constant.CURRENCY+String.valueOf(cartItem.getProduct().getPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
-        tvQuantity.setText(String.valueOf(cartItem.getQuantity()));
-        tvPrice.setText(Constant.CURRENCY+String.valueOf(cart.getCost(cartItem.getProduct()).setScale(0, BigDecimal.ROUND_HALF_UP)));
+        txtNombre.setText(cartItem.getProduct().getName());
+        txtPrecioUnitario.setText(Constant.CURRENCY+String.valueOf(cartItem.getProduct().getPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
+        txtCantidad.setText(String.valueOf(cartItem.getQuantity()));
+        txtPrecio.setText(Constant.CURRENCY+String.valueOf(cart.getCost(cartItem.getProduct()).setScale(0, BigDecimal.ROUND_HALF_UP)));
         return convertView;
     }
 
     private static class ViewHolder {
-        public final TextView tvCartItemName;
-        public final TextView tvCartItemUnitPrice;
-        public final TextView tvCartItemQuantity;
-        public final TextView tvCartItemPrice;
+        public final TextView txtNombreItem;
+        public final TextView txtPrecioUnitarioItem;
+        public final TextView txtCantidadItem;
+        public final TextView txtPrecioItem;
 
-        public ViewHolder(TextView tvCartItemName, TextView tvCartItemUnitPrice, TextView tvCartItemQuantity, TextView tvCartItemPrice) {
-            this.tvCartItemName = tvCartItemName;
-            this.tvCartItemUnitPrice = tvCartItemUnitPrice;
-            this.tvCartItemQuantity = tvCartItemQuantity;
-            this.tvCartItemPrice = tvCartItemPrice;
+        public ViewHolder(TextView txtNombreItem, TextView txtPrecioUnitarioItem, TextView txtCantidadItem, TextView txtPrecioItem) {
+            this.txtNombreItem = txtNombreItem;
+            this.txtPrecioUnitarioItem = txtPrecioUnitarioItem;
+            this.txtCantidadItem = txtCantidadItem;
+            this.txtPrecioItem = txtPrecioItem;
         }
     }
 }

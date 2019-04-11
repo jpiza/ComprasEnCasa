@@ -9,30 +9,30 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <TextView
-        android:id="@+id/tvCartHeader"
+        android:id="@+id/txtCarroTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green"
         android:gravity="center"
-        android:paddingBottom="@dimen/common_padding"
         android:paddingTop="@dimen/common_padding"
-        android:text="@string/shopping_cart"
+        android:paddingBottom="@dimen/common_padding"
+        android:text="@string/carro_compra"
         android:textAllCaps="true"
         android:textSize="@dimen/header_text_size"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <ListView
-        android:id="@+id/lvCartItems"
+        android:id="@+id/lstItemsCarro"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_above="@+id/llTotal"
-        android:layout_below="@id/tvCartHeader"/>
+        android:layout_above="@+id/LayoutTotal"
+        android:layout_below="@id/txtCarroTitulo" />
 
     <LinearLayout
-        android:id="@+id/llTotal"
+        android:id="@+id/LayoutTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/llBottom"
+        android:layout_above="@+id/LayoutInferior"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/common_padding"
         android:paddingTop="@dimen/common_padding"
@@ -43,21 +43,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
             android:gravity="center_vertical|end"
-            android:text="@string/total_price"
-            android:textStyle="bold"/>
+            android:text="@string/precio_total"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvTotalPrice"
+            android:id="@+id/txtPrecioTotal"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center"
             android:text=""
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@id/llBottom"
+        android:id="@+id/LayoutInferior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -65,26 +65,26 @@
         android:weightSum="1">
 
         <Button
-            android:id="@+id/bClear"
+            android:id="@+id/btnLimpiar"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:background="@color/orange"
-            android:text="@string/clear_cart"
+            android:text="@string/limpiar_carro"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/bShop"
+            android:id="@+id/btnComprar"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:background="@color/orange"
-            android:text="@string/shop"
+            android:text="@string/comprar"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
 </RelativeLayout>

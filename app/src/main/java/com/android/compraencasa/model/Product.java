@@ -9,21 +9,21 @@ public class Product implements Saleable, Serializable {
     private static final long serialVersionUID = -4073256626483275668L;
 
     private int pId;
-    private String pName;
-    private BigDecimal pPrice;
-    private String pDescription;
-    private String pImageName;
+    private String pNombre;
+    private BigDecimal pPrecio;
+    private String pDescripcion;
+    private String pImagenNombre;
 
     public Product() {
         super();
     }
 
-    public Product(int pId, String pName, BigDecimal pPrice, String pDescription, String pImageName) {
+    public Product(int pId, String pNombre, BigDecimal pPrecio, String pDescripcion, String pImagenNombre) {
         setId(pId);
-        setName(pName);
-        setPrice(pPrice);
-        setDescription(pDescription);
-        setImageName(pImageName);
+        setName(pNombre);
+        setPrice(pPrecio);
+        setDescription(pDescripcion);
+        setImageName(pImagenNombre);
     }
 
     @Override
@@ -38,9 +38,9 @@ public class Product implements Saleable, Serializable {
         final int prime = 31;
         int hash = 1;
         hash = hash * prime + pId;
-        hash = hash * prime + (pName == null ? 0 : pName.hashCode());
-        hash = hash * prime + (pPrice == null ? 0 : pPrice.hashCode());
-        hash = hash * prime + (pDescription == null ? 0 : pDescription.hashCode());
+        hash = hash * prime + (pNombre == null ? 0 : pNombre.hashCode());
+        hash = hash * prime + (pPrecio == null ? 0 : pPrecio.hashCode());
+        hash = hash * prime + (pDescripcion == null ? 0 : pDescripcion.hashCode());
 
         return hash;
     }
@@ -56,35 +56,35 @@ public class Product implements Saleable, Serializable {
 
     @Override
     public BigDecimal getPrice() {
-        return pPrice;
+        return pPrecio;
     }
 
     @Override
     public String getName() {
-        return pName;
+        return pNombre;
     }
 
     public void setPrice(BigDecimal price) {
-        this.pPrice = price;
+        this.pPrecio = price;
     }
 
     public void setName(String name) {
-        this.pName = name;
+        this.pNombre = name;
     }
 
     public String getDescription() {
-        return pDescription;
+        return pDescripcion;
     }
 
     public void setDescription(String pDescription) {
-        this.pDescription = pDescription;
+        this.pDescripcion = pDescription;
     }
 
     public String getImageName() {
-        return pImageName;
+        return pImagenNombre;
     }
 
     public void setImageName(String imageName) {
-        this.pImageName = imageName;
+        this.pImagenNombre = imageName;
     }
 }
