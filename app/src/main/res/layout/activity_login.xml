@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText17"
+            android:id="@+id/txtBuscar"
             android:layout_width="248dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -22,14 +22,14 @@
             android:text="Buscar" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imgBuscar"
             android:layout_width="6dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@android:drawable/ic_menu_search" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imgPerfil"
             android:layout_width="11dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -44,7 +44,7 @@
         tools:layout_editor_absoluteY="44dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txtTituloIngresar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ingresar"
@@ -54,7 +54,7 @@
             android:translationY="30dp" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/txtEmail"
             android:layout_width="163dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -64,7 +64,7 @@
             android:translationY="58dp" />
 
         <EditText
-            android:id="@+id/editText18"
+            android:id="@+id/txtContrasena"
             android:layout_width="163dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -74,7 +74,7 @@
             android:translationY="60dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnIniciarSesion"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Iniciar sesion"
@@ -82,7 +82,7 @@
             android:translationY="90dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txtOlvidoContrasena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Olvido su contraseña?"

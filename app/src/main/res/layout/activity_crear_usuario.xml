@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText17"
+            android:id="@+id/txtBuscar"
             android:layout_width="248dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -22,14 +22,14 @@
             android:text="Buscar" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imgBuscar"
             android:layout_width="6dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@android:drawable/ic_menu_search" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imgPerfil"
             android:layout_width="11dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -37,14 +37,14 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtCrearUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Crear Usuario"
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/txtNombreUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -52,7 +52,7 @@
         android:text="Nombre de usuario" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/txtContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -60,7 +60,7 @@
         android:text="Contraseña" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/txtConfirmarContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -73,7 +73,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText10"
+            android:id="@+id/txtNombre"
             android:layout_width="192dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -82,7 +82,7 @@
             android:text="Nombre" />
 
         <EditText
-            android:id="@+id/editText11"
+            android:id="@+id/txtApellido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -92,7 +92,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/txtCedula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -100,7 +100,7 @@
         android:text="Cedula" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/txtDireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -113,7 +113,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText12"
+            android:id="@+id/txtTorre"
             android:layout_width="192dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -122,7 +122,7 @@
             android:text="Torre" />
 
         <EditText
-            android:id="@+id/editText13"
+            android:id="@+id/txtApto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -132,7 +132,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText14"
+        android:id="@+id/txtTelFijo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -140,7 +140,7 @@
         android:text="Telefono Fijo" />
 
     <EditText
-        android:id="@+id/editText15"
+        android:id="@+id/txtTelCelular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -148,7 +148,7 @@
         android:text="Telefono Celular" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCrear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Crear" />
