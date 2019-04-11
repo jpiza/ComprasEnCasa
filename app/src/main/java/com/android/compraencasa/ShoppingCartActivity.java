@@ -91,7 +91,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
                                 cartItems.remove(position-1);
                                 cartItemAdapter.updateCartItems(cartItems);
                                 cartItemAdapter.notifyDataSetChanged();
-                                txtPrecioTotal.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(2, BigDecimal.ROUND_HALF_UP)));
+                                txtPrecioTotal.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
                             }
                         })
                         .setNegativeButton(getResources().getString(R.string.no), null)

@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <TextView
-        android:id="@+id/txtCarroTitulo"
+        android:id="@+id/txtTituloCarro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green"
@@ -26,7 +26,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/LayoutTotal"
-        android:layout_below="@id/txtCarroTitulo" />
+        android:layout_below="@id/txtTituloCarro" />
 
     <LinearLayout
         android:id="@+id/LayoutTotal"

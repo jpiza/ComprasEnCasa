@@ -80,7 +80,7 @@ public class ProductActivity extends AppCompatActivity {
     private void setProductProperties() {
         txtNombreProducto.setText(producto.getName());
         txtDescProducto.setText(producto.getDescription());
-        imgImagenProducto.setImageResource(this.getResources().getIdentifier(producto.getImageName(), "imagen", this.getPackageName()));
+        imgImagenProducto.setImageResource(this.getResources().getIdentifier(producto.getImageName(), "drawable", this.getPackageName()));
     }
 
     private void initializeQuantity() {
