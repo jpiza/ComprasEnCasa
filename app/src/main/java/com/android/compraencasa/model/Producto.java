@@ -12,18 +12,18 @@ public class Producto implements Venta, Serializable {
     private String pNombre;
     private BigDecimal pPrecio;
     private String pDescripcion;
-    private String pNombreImagen;
+    private String pImagen;
 
     public Producto() {
         super();
     }
 
-    public Producto(int pId, String pNombre, BigDecimal pPrecio, String pDescripcion, String pNombreImagen) {
+    public Producto(int pId, String pNombre, BigDecimal pPrecio, String pDescripcion, String pImagen) {
         setId(pId);
         setNombre(pNombre);
         setPrecio(pPrecio);
         setDescripcion(pDescripcion);
-        setNombreImagen(pNombreImagen);
+        setImagen(pImagen);
     }
 
     @Override
@@ -80,11 +80,11 @@ public class Producto implements Venta, Serializable {
         this.pDescripcion = pDescripcion;
     }
 
-    public String getNombreImagen() {
-        return pNombreImagen;
+    public String getImagen() {
+        return pImagen;
     }
 
-    public void setNombreImagen(String imagenNombre) {
-        this.pNombreImagen = imagenNombre;
+    public void setImagen(String imagenNombre) {
+        this.pImagen = imagenNombre;
     }
 }

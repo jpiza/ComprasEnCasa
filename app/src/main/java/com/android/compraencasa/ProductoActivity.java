@@ -75,7 +75,7 @@ public class ProductoActivity extends AppCompatActivity {
     private void setPropiedadesProductos() {
         txtNombreProducto.setText(producto.getNombre());
         txtDescProducto.setText(producto.getDescripcion());
-        imgImagenProducto.setImageResource(this.getResources().getIdentifier(producto.getNombreImagen(), "drawable", this.getPackageName()));
+        imgImagenProducto.setImageResource(this.getResources().getIdentifier(producto.getImagen(), "drawable", this.getPackageName()));
     }
 
     private void iniciarCantidades() {

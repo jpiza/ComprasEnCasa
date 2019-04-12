@@ -2,43 +2,43 @@ package com.android.compraencasa.adapter;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.compraencasa.MainActivity;
+import com.android.compraencasa.ProductoActivity;
 import com.android.compraencasa.R;
-import com.android.compraencasa.model.Galeria;
+import com.android.compraencasa.model.Producto;
 
 import java.util.ArrayList;
 
-public class CoverFlowAdapter extends BaseAdapter {
+public class CoverFlowAdapter extends BaseAdapter implements View.OnClickListener {
 
-    private ArrayList<Galeria> data;
+    private ArrayList<Producto> datos;
     private AppCompatActivity activity;
 
-    public CoverFlowAdapter(AppCompatActivity context, ArrayList<Galeria> objects) {
+    public CoverFlowAdapter(AppCompatActivity context, ArrayList<Producto> objects) {
         this.activity = context;
-        this.data = objects;
+        this.datos = objects;
     }
 
     @Override
-    public int getCount() {
-        return data.size();
+    public int getCount() { return datos.size(); }
+
+    @Override
+    public Producto getItem(int position) {
+        return datos.get(position);
     }
 
     @Override
-    public Galeria getItem(int position) {
-        return data.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
+    public long getItemId(int position) { return position; }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -55,8 +55,8 @@ public class CoverFlowAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.gameImage.setImageResource(data.get(position).getImageSource());
-        viewHolder.gameName.setText(data.get(position).getName());
+        viewHolder.imagenProducto.setImageResource(datos.get(position).getId());
+        viewHolder.nombreProducto.setText(datos.get(position).getNombre());
 
         convertView.setOnClickListener(onClickListener(position));
 
@@ -69,28 +69,37 @@ public class CoverFlowAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 final Dialog dialog = new Dialog(activity);
-                dialog.setContentView(R.layout.dialog_game_info);
-                dialog.setCancelable(true); // dimiss when touching outside
-                dialog.setTitle("Game Details");
+                dialog.setContentView(R.layout.dialog_product_info);
+                dialog.setCancelable(true);
+                dialog.setTitle("Detalle Producto");
 
-                TextView text = (TextView) dialog.findViewById(R.id.name);
-                text.setText(getItem(position).getName());
-                ImageView image = (ImageView) dialog.findViewById(R.id.image);
-                image.setImageResource(getItem(position).getImageSource());
+                TextView text = (TextView) dialog.findViewById(R.id.nombre);
+                text.setText(getItem(position).getNombre());
+                ImageView image = (ImageView) dialog.findViewById(R.id.imagen);
+                image.setImageResource(getItem(position).getId());
+                Button btnVer = (Button)dialog.findViewById(R.id.btnVer);
+                btnVer.setOnClickListener(this);
 
                 dialog.show();
             }
         };
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.btnVer){
+            //Intent i = new Intent(this, ProductoActivity.class);
+            //startActivity(i);
+        }
+    }
 
     private static class ViewHolder {
-        private TextView gameName;
-        private ImageView gameImage;
+        private TextView nombreProducto;
+        private ImageView imagenProducto;
 
         public ViewHolder(View v) {
-            gameImage = (ImageView) v.findViewById(R.id.image);
-            gameName = (TextView) v.findViewById(R.id.name);
+            imagenProducto = (ImageView)v.findViewById(R.id.imagen);
+            nombreProducto = (TextView)v.findViewById(R.id.nombre);
         }
     }
 }

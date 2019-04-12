@@ -72,7 +72,7 @@ public class ProductoAdapter extends BaseAdapter {
         txtPrecio.setText(Constante.MONEDA+String.valueOf(producto.getPrecio().setScale(0, BigDecimal.ROUND_HALF_UP)));
         Log.d(TAG, "Context package name: " + context.getPackageName());
         imgImagen.setImageResource(context.getResources().getIdentifier(
-                producto.getNombreImagen(), "drawable", context.getPackageName()));
+                producto.getImagen(), "drawable", context.getPackageName()));
         return convertView;
     }
 
