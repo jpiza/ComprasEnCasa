@@ -41,7 +41,7 @@ public class ProductoActivity extends AppCompatActivity {
 
         setLinkCarroCompras();
 
-        iniciarVistas();
+        iniciarComponentes();
 
         setPropiedadesProductos();
 
@@ -58,13 +58,13 @@ public class ProductoActivity extends AppCompatActivity {
         tvViewShoppingCart.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProductoActivity.this, CarroComprasActivity.class);
+                Intent intent = new Intent(ProductoActivity.this, CarroActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void iniciarVistas() {
+    private void iniciarComponentes() {
         txtNombreProducto = (TextView) findViewById(R.id.txtNombreProducto);
         txtDescProducto = (TextView) findViewById(R.id.txtDescProducto);
         imgImagenProducto = (ImageView) findViewById(R.id.imgImagenProducto);
@@ -91,7 +91,7 @@ public class ProductoActivity extends AppCompatActivity {
                 Carro carro = CarroHelper.getCarro();
                 Log.d(TAG, "Agregando Producto: " + producto.getNombre());
                 carro.agregar(producto, Integer.valueOf(spCantidad.getSelectedItem().toString()));
-                Intent intent = new Intent(ProductoActivity.this, CarroComprasActivity.class);
+                Intent intent = new Intent(ProductoActivity.this, CarroActivity.class);
                 startActivity(intent);
             }
         });

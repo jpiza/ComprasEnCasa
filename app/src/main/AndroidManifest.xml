@@ -7,17 +7,17 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/nombre_app"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".CrearUsuarioActivity" />
-        <activity  android:name=".MainActivity" android:label="@string/nombre_app">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CrearUsuarioActivity" />
+        <activity  android:name=".MainActivity" android:label="@string/nombre_app" />
         <activity android:name=".ProductoActivity" />
-        <activity android:name=".CarroComprasActivity" />
+        <activity android:name=".CarroActivity" />
     </application>
 
 </manifest>

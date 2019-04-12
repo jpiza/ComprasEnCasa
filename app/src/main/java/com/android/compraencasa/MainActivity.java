@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         tvViewShoppingCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CarroComprasActivity.class);
+                Intent intent = new Intent(MainActivity.this, CarroActivity.class);
                 startActivity(intent);
             }
         });

@@ -28,13 +28,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class CarroComprasActivity extends AppCompatActivity {
-    private static final String TAG = "CarroComprasActivity";
+public class CarroActivity extends AppCompatActivity {
+    private static final String TAG = "CarroActivity";
 
     ListView lstItemsCarro;
     Button btnLimpiar;
     Button btnComprar;
-    TextView txtPrecioTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +71,7 @@ public class CarroComprasActivity extends AppCompatActivity {
         btnComprar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CarroComprasActivity.this, MainActivity.class);
+                Intent intent = new Intent(CarroActivity.this, CrearUsuarioActivity.class);
                 startActivity(intent);
             }
         });
@@ -80,7 +79,7 @@ public class CarroComprasActivity extends AppCompatActivity {
         lstItemsCarro.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                new AlertDialog.Builder(CarroComprasActivity.this)
+                new AlertDialog.Builder(CarroActivity.this)
                         .setTitle(getResources().getString(R.string.eliminar_item))
                         .setMessage(getResources().getString(R.string.eliminar_item_mensaje))
                         .setPositiveButton(getResources().getString(R.string.si), new DialogInterface.OnClickListener() {
@@ -108,7 +107,7 @@ public class CarroComprasActivity extends AppCompatActivity {
                 Producto producto = itemsCarro.get(position-1).getProducto();
                 Log.d(TAG, "Viendo producto: " + producto.getNombre());
                 bundle.putSerializable("producto", producto);
-                Intent intent = new Intent(CarroComprasActivity.this, ProductoActivity.class);
+                Intent intent = new Intent(CarroActivity.this, ProductoActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
