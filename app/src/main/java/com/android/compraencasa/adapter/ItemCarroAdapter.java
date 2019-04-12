@@ -12,35 +12,35 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.android.compraencasa.R;
-import com.android.compraencasa.constant.Constant;
-import com.android.compraencasa.model.CartItem;
-import com.android.compraencasa.sc.model.Cart;
-import com.android.compraencasa.sc.util.CartHelper;
+import com.android.compraencasa.constant.Constante;
+import com.android.compraencasa.model.ItemCarro;
+import com.android.compraencasa.sc.model.Carro;
+import com.android.compraencasa.sc.util.CarroHelper;
 
-public class CartItemAdapter extends BaseAdapter {
-    private static final String TAG = "CartItemAdapter";
+public class ItemCarroAdapter extends BaseAdapter {
+    private static final String TAG = "ItemCarroAdapter";
 
-    private List<CartItem> cartItems = Collections.emptyList();
+    private List<ItemCarro> itemsCarro = Collections.emptyList();
 
     private final Context context;
 
-    public CartItemAdapter(Context context) {
+    public ItemCarroAdapter(Context context) {
         this.context = context;
     }
 
-    public void updateCartItems(List<CartItem> cartItems) {
-        this.cartItems = cartItems;
+    public void actualizarItemsCarro(List<ItemCarro> itemsCarro) {
+        this.itemsCarro = itemsCarro;
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return cartItems.size();
+        return itemsCarro.size();
     }
 
     @Override
-    public CartItem getItem(int position) {
-        return cartItems.get(position);
+    public ItemCarro getItem(int position) {
+        return itemsCarro.get(position);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class CartItemAdapter extends BaseAdapter {
         TextView txtPrecio;
         if (convertView == null) {
             convertView = LayoutInflater.from(context)
-                    .inflate(R.layout.adapter_cart_item, parent, false);
+                    .inflate(R.layout.adapter_item_carro, parent, false);
             txtNombre = (TextView) convertView.findViewById(R.id.txtNombreItem);
             txtPrecioUnitario = (TextView) convertView.findViewById(R.id.txtPrecioUnitarioItem);
             txtCantidad = (TextView) convertView.findViewById(R.id.txtCantidadItem);
@@ -70,12 +70,12 @@ public class CartItemAdapter extends BaseAdapter {
             txtPrecio = viewHolder.txtPrecioItem;
         }
 
-        final Cart cart = CartHelper.getCart();
-        final CartItem cartItem = getItem(position);
-        txtNombre.setText(cartItem.getProduct().getName());
-        txtPrecioUnitario.setText(Constant.CURRENCY+String.valueOf(cartItem.getProduct().getPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
-        txtCantidad.setText(String.valueOf(cartItem.getQuantity()));
-        txtPrecio.setText(Constant.CURRENCY+String.valueOf(cart.getCost(cartItem.getProduct()).setScale(0, BigDecimal.ROUND_HALF_UP)));
+        final Carro carro = CarroHelper.getCarro();
+        final ItemCarro itemCarro = getItem(position);
+        txtNombre.setText(itemCarro.getProducto().getNombre());
+        txtPrecioUnitario.setText(Constante.MONEDA+String.valueOf(itemCarro.getProducto().getPrecio().setScale(0, BigDecimal.ROUND_HALF_UP)));
+        txtCantidad.setText(String.valueOf(itemCarro.getCantidad()));
+        txtPrecio.setText(Constante.MONEDA+String.valueOf(carro.getCosto(itemCarro.getProducto()).setScale(0, BigDecimal.ROUND_HALF_UP)));
         return convertView;
     }
 

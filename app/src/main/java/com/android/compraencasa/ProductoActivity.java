@@ -13,49 +13,44 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ImageView;
-import com.android.compraencasa.constant.Constant;
-import com.android.compraencasa.model.Product;
-import com.android.compraencasa.sc.model.Cart;
-import com.android.compraencasa.sc.util.CartHelper;
+import com.android.compraencasa.constant.Constante;
+import com.android.compraencasa.model.Producto;
+import com.android.compraencasa.sc.model.Carro;
+import com.android.compraencasa.sc.util.CarroHelper;
 
-public class ProductActivity extends AppCompatActivity {
-    private static final String TAG = "ProductActivity";
+public class ProductoActivity extends AppCompatActivity {
+    private static final String TAG = "ProductoActivity";
 
     TextView txtNombreProducto;
     TextView txtDescProducto;
     ImageView imgImagenProducto;
     Spinner spCantidad;
     Button btnAgregar;
-    Product producto;
+    Producto producto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_product);
+        setContentView(R.layout.activity_producto);
 
         Bundle data = getIntent().getExtras();
-        producto = (Product) data.getSerializable("product");
+        producto = (Producto) data.getSerializable("producto");
 
         Log.d(TAG, "Producto hashCode: " + producto.hashCode());
 
-        //Set Shopping Cart link
-        setShoppingCartLink();
+        setLinkCarroCompras();
 
-        //Retrieve views
-        retrieveViews();
+        iniciarVistas();
 
-        //Set product properties
-        setProductProperties();
+        setPropiedadesProductos();
 
-        //Initialize quantity
-        initializeQuantity();
+        iniciarCantidades();
 
-        //On ordering of product
-        onOrderProduct();
+        onOrdenProducto();
     }
 
-    private void setShoppingCartLink() {
+    private void setLinkCarroCompras() {
         TextView tvViewShoppingCart = (TextView)findViewById(R.id.txtVerCarroCompra);
         SpannableString content = new SpannableString(getText(R.string.carro_compra));
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
@@ -63,13 +58,13 @@ public class ProductActivity extends AppCompatActivity {
         tvViewShoppingCart.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProductActivity.this, ShoppingCartActivity.class);
+                Intent intent = new Intent(ProductoActivity.this, CarroComprasActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void retrieveViews() {
+    private void iniciarVistas() {
         txtNombreProducto = (TextView) findViewById(R.id.txtNombreProducto);
         txtDescProducto = (TextView) findViewById(R.id.txtDescProducto);
         imgImagenProducto = (ImageView) findViewById(R.id.imgImagenProducto);
@@ -77,26 +72,26 @@ public class ProductActivity extends AppCompatActivity {
         btnAgregar = (Button) findViewById(R.id.btnAgregar);
     }
 
-    private void setProductProperties() {
-        txtNombreProducto.setText(producto.getName());
-        txtDescProducto.setText(producto.getDescription());
-        imgImagenProducto.setImageResource(this.getResources().getIdentifier(producto.getImageName(), "drawable", this.getPackageName()));
+    private void setPropiedadesProductos() {
+        txtNombreProducto.setText(producto.getNombre());
+        txtDescProducto.setText(producto.getDescripcion());
+        imgImagenProducto.setImageResource(this.getResources().getIdentifier(producto.getNombreImagen(), "drawable", this.getPackageName()));
     }
 
-    private void initializeQuantity() {
-        ArrayAdapter<Integer> dataAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, Constant.QUANTITY_LIST);
+    private void iniciarCantidades() {
+        ArrayAdapter<Integer> dataAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, Constante.LISTA_CANTIDAD);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spCantidad.setAdapter(dataAdapter);
     }
 
-    private void onOrderProduct() {
+    private void onOrdenProducto() {
         btnAgregar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cart cart = CartHelper.getCart();
-                Log.d(TAG, "Agregando Producto: " + producto.getName());
-                cart.add(producto, Integer.valueOf(spCantidad.getSelectedItem().toString()));
-                Intent intent = new Intent(ProductActivity.this, ShoppingCartActivity.class);
+                Carro carro = CarroHelper.getCarro();
+                Log.d(TAG, "Agregando Producto: " + producto.getNombre());
+                carro.agregar(producto, Integer.valueOf(spCantidad.getSelectedItem().toString()));
+                Intent intent = new Intent(ProductoActivity.this, CarroComprasActivity.class);
                 startActivity(intent);
             }
         });

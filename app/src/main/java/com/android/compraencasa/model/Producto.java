@@ -3,35 +3,35 @@ package com.android.compraencasa.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import com.android.compraencasa.sc.model.Saleable;
+import com.android.compraencasa.sc.model.Venta;
 
-public class Product implements Saleable, Serializable {
+public class Producto implements Venta, Serializable {
     private static final long serialVersionUID = -4073256626483275668L;
 
     private int pId;
     private String pNombre;
     private BigDecimal pPrecio;
     private String pDescripcion;
-    private String pImagenNombre;
+    private String pNombreImagen;
 
-    public Product() {
+    public Producto() {
         super();
     }
 
-    public Product(int pId, String pNombre, BigDecimal pPrecio, String pDescripcion, String pImagenNombre) {
+    public Producto(int pId, String pNombre, BigDecimal pPrecio, String pDescripcion, String pNombreImagen) {
         setId(pId);
-        setName(pNombre);
-        setPrice(pPrecio);
-        setDescription(pDescripcion);
-        setImageName(pImagenNombre);
+        setNombre(pNombre);
+        setPrecio(pPrecio);
+        setDescripcion(pDescripcion);
+        setNombreImagen(pNombreImagen);
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null) return false;
-        if (!(o instanceof Product)) return false;
+        if (!(o instanceof Producto)) return false;
 
-        return (this.pId == ((Product) o).getId());
+        return (this.pId == ((Producto) o).getId());
     }
 
     public int hashCode() {
@@ -55,36 +55,36 @@ public class Product implements Saleable, Serializable {
     }
 
     @Override
-    public BigDecimal getPrice() {
+    public BigDecimal getPrecio() {
         return pPrecio;
     }
 
     @Override
-    public String getName() {
+    public String getNombre() {
         return pNombre;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.pPrecio = price;
+    public void setPrecio(BigDecimal precio) {
+        this.pPrecio = precio;
     }
 
-    public void setName(String name) {
-        this.pNombre = name;
+    public void setNombre(String nombre) {
+        this.pNombre = nombre;
     }
 
-    public String getDescription() {
+    public String getDescripcion() {
         return pDescripcion;
     }
 
-    public void setDescription(String pDescription) {
-        this.pDescripcion = pDescription;
+    public void setDescripcion(String pDescripcion) {
+        this.pDescripcion = pDescripcion;
     }
 
-    public String getImageName() {
-        return pImagenNombre;
+    public String getNombreImagen() {
+        return pNombreImagen;
     }
 
-    public void setImageName(String imageName) {
-        this.pImagenNombre = imageName;
+    public void setNombreImagen(String imagenNombre) {
+        this.pNombreImagen = imagenNombre;
     }
 }

@@ -12,9 +12,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.compraencasa.adapter.ProductAdapter;
-import com.android.compraencasa.constant.Constant;
-import com.android.compraencasa.model.Product;
+import com.android.compraencasa.adapter.ProductoAdapter;
+import com.android.compraencasa.constant.Constante;
+import com.android.compraencasa.model.Producto;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -31,16 +31,16 @@ public class MainActivity extends AppCompatActivity {
         tvViewShoppingCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ShoppingCartActivity.class);
+                Intent intent = new Intent(MainActivity.this, CarroComprasActivity.class);
                 startActivity(intent);
             }
         });
 
         ListView lstProductos = (ListView) findViewById(R.id.lstProductos);
-        lstProductos.addHeaderView(getLayoutInflater().inflate(R.layout.product_list_header, lstProductos, false));
+        lstProductos.addHeaderView(getLayoutInflater().inflate(R.layout.producto_lista_header, lstProductos, false));
 
-        ProductAdapter productAdapter = new ProductAdapter(this);
-        productAdapter.updateProducts(Constant.PRODUCT_LIST);
+        ProductoAdapter productAdapter = new ProductoAdapter(this);
+        productAdapter.actualizarProducto(Constante.LISTA_PRODUCTO);
 
         lstProductos.setAdapter(productAdapter);
 
@@ -49,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Product product = Constant.PRODUCT_LIST.get(position - 1);
-                Intent intent = new Intent(MainActivity.this, ProductActivity.class);
+                Producto producto = Constante.LISTA_PRODUCTO.get(position - 1);
+                Intent intent = new Intent(MainActivity.this, ProductoActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("product", product);
-                Log.d(TAG, "Viendo Producto: " + product.getName());
+                bundle.putSerializable("producto", producto);
+                Log.d(TAG, "Viendo Producto: " + producto.getNombre());
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

@@ -14,21 +14,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.compraencasa.R;
-import com.android.compraencasa.constant.Constant;
-import com.android.compraencasa.model.Product;
+import com.android.compraencasa.constant.Constante;
+import com.android.compraencasa.model.Producto;
 
-public class ProductAdapter extends BaseAdapter {
-    private static final String TAG = "ProductAdapter";
+public class ProductoAdapter extends BaseAdapter {
+    private static final String TAG = "ProductoAdapter";
 
-    private List<Product> products = new ArrayList<Product>();
+    private List<Producto> products = new ArrayList<Producto>();
 
     private final Context context;
 
-    public ProductAdapter(Context context) {
+    public ProductoAdapter(Context context) {
         this.context = context;
     }
 
-    public void updateProducts(List<Product> products) {
+    public void actualizarProducto(List<Producto> products) {
         this.products.addAll(products);
         notifyDataSetChanged();
     }
@@ -39,7 +39,7 @@ public class ProductAdapter extends BaseAdapter {
     }
 
     @Override
-    public Product getItem(int position) {
+    public Producto getItem(int position) {
         return products.get(position);
     }
 
@@ -55,7 +55,7 @@ public class ProductAdapter extends BaseAdapter {
         ImageView imgImagen;
         if (convertView == null) {
             convertView = LayoutInflater.from(context)
-                    .inflate(R.layout.adapter_product, parent, false);
+                    .inflate(R.layout.adapter_producto, parent, false);
             txtNombre = (TextView) convertView.findViewById(R.id.txtNombreProducto);
             txtPrecio = (TextView) convertView.findViewById(R.id.txtPrecioProducto);
             imgImagen = (ImageView) convertView.findViewById(R.id.imgImagenProducto);
@@ -67,12 +67,12 @@ public class ProductAdapter extends BaseAdapter {
             imgImagen = viewHolder.imgImagenProducto;
         }
 
-        final Product product = getItem(position);
-        txtNombre.setText(product.getName());
-        txtPrecio.setText(Constant.CURRENCY+String.valueOf(product.getPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
+        final Producto producto = getItem(position);
+        txtNombre.setText(producto.getNombre());
+        txtPrecio.setText(Constante.MONEDA+String.valueOf(producto.getPrecio().setScale(0, BigDecimal.ROUND_HALF_UP)));
         Log.d(TAG, "Context package name: " + context.getPackageName());
         imgImagen.setImageResource(context.getResources().getIdentifier(
-                product.getImageName(), "drawable", context.getPackageName()));
+                producto.getNombreImagen(), "drawable", context.getPackageName()));
         return convertView;
     }
 

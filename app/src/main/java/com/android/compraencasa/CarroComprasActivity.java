@@ -14,13 +14,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.compraencasa.adapter.CartItemAdapter;
-import com.android.compraencasa.constant.Constant;
-import com.android.compraencasa.model.CartItem;
-import com.android.compraencasa.model.Product;
-import com.android.compraencasa.sc.model.Cart;
-import com.android.compraencasa.sc.model.Saleable;
-import com.android.compraencasa.sc.util.CartHelper;
+import com.android.compraencasa.adapter.ItemCarroAdapter;
+import com.android.compraencasa.constant.Constante;
+import com.android.compraencasa.model.ItemCarro;
+import com.android.compraencasa.model.Producto;
+import com.android.compraencasa.sc.model.Carro;
+import com.android.compraencasa.sc.model.Venta;
+import com.android.compraencasa.sc.util.CarroHelper;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -28,8 +28,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ShoppingCartActivity extends AppCompatActivity {
-    private static final String TAG = "ShoppingCartActivity";
+public class CarroComprasActivity extends AppCompatActivity {
+    private static final String TAG = "CarroComprasActivity";
 
     ListView lstItemsCarro;
     Button btnLimpiar;
@@ -39,19 +39,19 @@ public class ShoppingCartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart);
+        setContentView(R.layout.activity_carro);
 
         lstItemsCarro = (ListView) findViewById(R.id.lstItemsCarro);
         LayoutInflater layoutInflater = getLayoutInflater();
 
-        final Cart cart = CartHelper.getCart();
+        final Carro carro = CarroHelper.getCarro();
         final TextView txtPrecioTotal = (TextView) findViewById(R.id.txtPrecioTotal);
-        txtPrecioTotal.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
+        txtPrecioTotal.setText(Constante.MONEDA+String.valueOf(carro.getPrecioTotal().setScale(0, BigDecimal.ROUND_HALF_UP)));
 
-        lstItemsCarro.addHeaderView(layoutInflater.inflate(R.layout.cart_header, lstItemsCarro, false));
+        lstItemsCarro.addHeaderView(layoutInflater.inflate(R.layout.carro_header, lstItemsCarro, false));
 
-        final CartItemAdapter cartItemAdapter = new CartItemAdapter(this);
-        cartItemAdapter.updateCartItems(getCartItems(cart));
+        final ItemCarroAdapter cartItemAdapter = new ItemCarroAdapter(this);
+        cartItemAdapter.actualizarItemsCarro(getitemsCarro(carro));
 
         lstItemsCarro.setAdapter(cartItemAdapter);
 
@@ -61,18 +61,18 @@ public class ShoppingCartActivity extends AppCompatActivity {
         btnLimpiar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "Clearing the shopping cart");
-                cart.clear();
-                cartItemAdapter.updateCartItems(getCartItems(cart));
+                Log.d(TAG, "Limpiando el carro de compras");
+                carro.limpiar();
+                cartItemAdapter.actualizarItemsCarro(getitemsCarro(carro));
                 cartItemAdapter.notifyDataSetChanged();
-                txtPrecioTotal.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
+                txtPrecioTotal.setText(Constante.MONEDA+String.valueOf(carro.getPrecioTotal().setScale(0, BigDecimal.ROUND_HALF_UP)));
             }
         });
 
         btnComprar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShoppingCartActivity.this, MainActivity.class);
+                Intent intent = new Intent(CarroComprasActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -80,18 +80,18 @@ public class ShoppingCartActivity extends AppCompatActivity {
         lstItemsCarro.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                new AlertDialog.Builder(ShoppingCartActivity.this)
+                new AlertDialog.Builder(CarroComprasActivity.this)
                         .setTitle(getResources().getString(R.string.eliminar_item))
                         .setMessage(getResources().getString(R.string.eliminar_item_mensaje))
                         .setPositiveButton(getResources().getString(R.string.si), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                List<CartItem> cartItems = getCartItems(cart);
-                                cart.remove(cartItems.get(position-1).getProduct());
-                                cartItems.remove(position-1);
-                                cartItemAdapter.updateCartItems(cartItems);
+                                List<ItemCarro> itemsCarro = getitemsCarro(carro);
+                                carro.eliminar(itemsCarro.get(position-1).getProducto());
+                                itemsCarro.remove(position-1);
+                                cartItemAdapter.actualizarItemsCarro(itemsCarro);
                                 cartItemAdapter.notifyDataSetChanged();
-                                txtPrecioTotal.setText(Constant.CURRENCY+String.valueOf(cart.getTotalPrice().setScale(0, BigDecimal.ROUND_HALF_UP)));
+                                txtPrecioTotal.setText(Constante.MONEDA+String.valueOf(carro.getPrecioTotal().setScale(0, BigDecimal.ROUND_HALF_UP)));
                             }
                         })
                         .setNegativeButton(getResources().getString(R.string.no), null)
@@ -104,31 +104,31 @@ public class ShoppingCartActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bundle = new Bundle();
-                List<CartItem> cartItems = getCartItems(cart);
-                Product product = cartItems.get(position-1).getProduct();
-                Log.d(TAG, "Viendo producto: " + product.getName());
-                bundle.putSerializable("product", product);
-                Intent intent = new Intent(ShoppingCartActivity.this, ProductActivity.class);
+                List<ItemCarro> itemsCarro = getitemsCarro(carro);
+                Producto producto = itemsCarro.get(position-1).getProducto();
+                Log.d(TAG, "Viendo producto: " + producto.getNombre());
+                bundle.putSerializable("producto", producto);
+                Intent intent = new Intent(CarroComprasActivity.this, ProductoActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
     }
 
-    private List<CartItem> getCartItems(Cart cart) {
-        List<CartItem> cartItems = new ArrayList<CartItem>();
-        Log.d(TAG, "Carro de compras actual: " + cart);
+    private List<ItemCarro> getitemsCarro(Carro carro) {
+        List<ItemCarro> itemsCarro = new ArrayList<ItemCarro>();
+        Log.d(TAG, "Carro de compras actual: " + carro);
 
-        Map<Saleable, Integer> itemMap = cart.getItemWithQuantity();
+        Map<Venta, Integer> itemMap = carro.getItemConCantidad();
 
-        for (Entry<Saleable, Integer> entry : itemMap.entrySet()) {
-            CartItem cartItem = new CartItem();
-            cartItem.setProduct((Product) entry.getKey());
-            cartItem.setQuantity(entry.getValue());
-            cartItems.add(cartItem);
+        for (Entry<Venta, Integer> entry : itemMap.entrySet()) {
+            ItemCarro itemCarro = new ItemCarro();
+            itemCarro.setProducto((Producto) entry.getKey());
+            itemCarro.setCantidad(entry.getValue());
+            itemsCarro.add(itemCarro);
         }
 
-        Log.d(TAG, "Lista de artículos del carrito: " + cartItems);
-        return cartItems;
+        Log.d(TAG, "Lista de artículos del carrito: " + itemsCarro);
+        return itemsCarro;
     }
 }

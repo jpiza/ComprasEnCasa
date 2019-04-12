@@ -17,7 +17,7 @@
         android:paddingTop="@dimen/common_padding"
         android:paddingBottom="@dimen/common_padding"
         android:text="@string/carro_compra"
-        android:textColor="@color/blue"
+        android:textColor="@color/colorAccent"
         android:textSize="@dimen/small_header_text_size" />
 
     <TextView
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtVerCarroCompra"
-        android:background="@color/green"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:paddingTop="@dimen/common_padding"
         android:paddingBottom="@dimen/common_padding"

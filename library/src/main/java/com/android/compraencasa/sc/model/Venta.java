@@ -2,8 +2,8 @@ package com.android.compraencasa.sc.model;
 
 import java.math.BigDecimal;
 
-public interface Saleable {
-    BigDecimal getPrice();
+public interface Venta {
+    BigDecimal getPrecio();
 
-    String getName();
+    String getNombre();
 }

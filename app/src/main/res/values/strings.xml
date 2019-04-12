@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Compra en Casa</string>
+    <string name="nombre_app">Compra en Casa</string>
 
     <string name="lista_producto">Lista de Productos</string>
     <string name="carro_compra">Carrito de Compras</string>
