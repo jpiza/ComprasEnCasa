@@ -47,7 +47,7 @@ public class ProductoActivity extends AppCompatActivity {
 
         iniciarCantidades();
 
-        onOrdenProducto();
+        onAgregarProducto();
     }
 
     private void setLinkCarroCompras() {
@@ -84,7 +84,7 @@ public class ProductoActivity extends AppCompatActivity {
         spCantidad.setAdapter(dataAdapter);
     }
 
-    private void onOrdenProducto() {
+    private void onAgregarProducto() {
         btnAgregar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
